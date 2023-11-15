@@ -2,11 +2,14 @@ local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
 local telescope = require('telescope')
 
-telescope.load_extension("recent_files")
+telescope.load_extension("projects")
 telescope.load_extension("frecency")
 
 telescope.setup {
     pickers = {
+        projects = {
+            theme = "ivy",
+        },
         find_files = {
             theme = "ivy",
         },
@@ -30,7 +33,6 @@ telescope.setup {
     }, -- defaults
     extensions = {
         frecency = {
-            theme = "ivy",
             db_root = os.getenv('HOME') .. '/.config/nvim/db_root',
             ignore_patterns = { "oil:*" },
             disable_devicons = true,
@@ -42,11 +44,7 @@ telescope.setup {
 -- project find file
 vim.keymap.set('n', '<leader>ff',
     function()
-        builtin.find_files { cwd = require('telescope.utils').buffer_dir() }
-    end)
-vim.keymap.set('n', '<leader>fF',
-    function()
-        location = vim.fn.input("from -> ")
+        location = vim.fn.input("from -> ./")
         builtin.find_files {
             cwd = require('telescope.utils').buffer_dir() .. "/" .. location
         }

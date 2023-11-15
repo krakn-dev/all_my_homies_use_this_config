@@ -1,10 +1,45 @@
 vim.g.mapleader = " "
 
 -- save buffer and format
+function FormatBufferWithoutLsp()
+    local save_view = vim.fn.winsaveview()
+    vim.cmd "normal! gg=G"
+    vim.fn.winrestview(save_view)
+end
+
+function GetIsLspAttachedToCurrentBuffer()
+    if #vim.lsp.buf_get_clients(0) > 0 then
+        return true
+    end
+    return false
+end
+
+local isCodeFormattingEnabled = true
+
 vim.keymap.set("n", "<leader>fs",
     function()
-        vim.lsp.buf.format({ async = false })
-        vim.cmd("w")
+        if (GetIsLspAttachedToCurrentBuffer()) then
+            if (isCodeFormattingEnabled) then
+                vim.lsp.buf.format({ async = false })
+            end
+            vim.cmd("w")
+        else
+            if (isCodeFormattingEnabled) then
+                FormatBufferWithoutLsp()
+            end
+            vim.cmd("w")
+        end
+    end)
+
+-- open and select lsp on ]
+-- toggle code formatting
+vim.keymap.set("n", "<leader>cf",
+    function()
+        if (isCodeFormattingEnabled) then
+            isCodeFormattingEnabled = false
+        else
+            isCodeFormattingEnabled = true
+        end
     end)
 
 -- quit
@@ -58,6 +93,15 @@ vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set("n", "<leader>D", "\"_dd")
 
+-- easier ESC
+vim.keymap.set("i", "jk", "<Esc>")
 
-vim.keymap.set("n", "Q", "\"_dd")
+-- ?? why
 vim.keymap.set("v", "Q", "<nop>")
+
+-- set cwd to current file directory
+vim.keymap.set("n", "g.", "<CMD>cd %:p:h<CR>")
+-- interactively cd relative to current file dir
+vim.keymap.set("n", "g/", ":cd %:p:h/")
+-- cd to last dir
+vim.keymap.set("n", "g-", "<CMD>cd -<CR>")

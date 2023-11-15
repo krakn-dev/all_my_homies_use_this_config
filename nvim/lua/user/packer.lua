@@ -9,14 +9,17 @@ return require('packer').startup(function(use)
 
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.4',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = { { 'nvim-lua/plenary.nvim' } }
     }
-    use 'ellisonleao/gruvbox.nvim' 
+    use 'ellisonleao/gruvbox.nvim'
     use 'franbach/miramare'
-    use( 'nvim-treesitter/nvim-treesitter', {run= ':TSUpdate'})
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     use 'ThePrimeagen/harpoon'
     use 'mbbill/undotree'
     use 'stevearc/oil.nvim'
+    use 'folke/trouble.nvim'
+    use 'smjonas/inc-rename.nvim'
+    use 'ahmedkhalf/project.nvim'
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
@@ -26,14 +29,13 @@ return require('packer').startup(function(use)
             -- {'williamboman/mason-lspconfig.nvim'},
 
             -- LSP Support
-            {'neovim/nvim-lspconfig'},
+            { 'neovim/nvim-lspconfig' },
             -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'},
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
         }
     }
-    use {"smartpde/telescope-recent-files"}
     use {
         "nvim-telescope/telescope-frecency.nvim",
     }
