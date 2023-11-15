@@ -1,0 +1,155 @@
+set_from_resource $user echo "$USER"
+set $mod Mod4
+
+# set screen resolution. comment TODO
+exec_always --no-startup-id /home/$user/new_resolution.sh
+
+# launch dmenu
+bindsym $mod+m exec dmenu_run -fn "Hack Nerd Font" -nb white -nf black -sb pink -sf black
+
+# increase/decrease volume
+bindsym $mod+Shift+minus exec amixer sset 'Master' 2%-
+bindsym $mod+Shift+plus exec amixer sset 'Master' 2%+
+
+# minize/maximize window
+bindsym $mod+minus move scratchpad
+bindsym $mod+plus scratchpad show; floating toggle
+
+# cool colors
+client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
+client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.background           #2f343f
+
+# set gaps
+gaps top 10
+gaps left 10
+gaps right 10
+gaps inner 10
+
+# set window borders
+for_window [class=".*"] border pixel 2
+
+# hide 
+hide_edge_borders both
+
+# Media volume controls
+bindsym XF86AudioMute exec amixer sset 'Master' toggle
+bindsym XF86AudioLowerVolume exec amixer sset 'Master' 2%-
+bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 2%+
+
+# move floating windows with mouse
+floating_modifier $mod
+
+# open terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+Escape kill
+
+# focus with vim keys
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# focus with arrow keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window with vim keys
+bindsym $mod+Shift+h move left 30px
+bindsym $mod+Shift+j move down 30px
+bindsym $mod+Shift+k move up 30px
+bindsym $mod+Shift+l move right 30px
+
+# move focused window with arrow keys
+bindsym $mod+Shift+Left move left 60px
+bindsym $mod+Shift+Down move down 60px
+bindsym $mod+Shift+Up move up 60px
+bindsym $mod+Shift+Right move right 60px
+
+# toggle split orientation
+bindsym $mod+slash layout toggle split 
+
+# toggle fullscreen for focused window
+bindsym $mod+f fullscreen toggle
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# workspace names
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# switch to workspace
+bindsym $mod+1 workspace number $ws1 
+bindsym $mod+2 workspace number $ws2 
+bindsym $mod+3 workspace number $ws3 
+bindsym $mod+4 workspace number $ws4 
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# move focused window to workspace
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+# restart i3 
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window
+mode "resize" {
+
+        # with vim keys
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
+        # with arrow keys, faster resize
+        bindsym Left resize shrink width 20 px or 20 ppt
+        bindsym Down resize grow height 20 px or 20 ppt
+        bindsym Up resize shrink height 20 px or 20 ppt
+        bindsym Right resize grow width 20 px or 20 ppt
+
+        # Go back to normal 
+        bindsym Escape mode "default"
+}
+
+# Enter resize mode
+bindsym $mod+r mode "resize"
+
+# bar with just workspace names
+bar {
+	font pango:Hack Nerd Font
+}
