@@ -1,1 +1,1 @@
-# all my homies hate microsoft products
+# i dont like vscode👍
