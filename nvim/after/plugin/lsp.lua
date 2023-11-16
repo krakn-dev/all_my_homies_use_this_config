@@ -25,7 +25,6 @@ end)
 -- auto-completion
 local cmp = require('cmp')
 local luasnip = require("luasnip")
-
 local has_words_before = function()
     unpack = unpack or table.unpack
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))

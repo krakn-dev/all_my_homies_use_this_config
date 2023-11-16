@@ -18,15 +18,28 @@ local isCodeFormattingEnabled = true
 
 vim.keymap.set("n", "<leader>fs",
     function()
+        -- just save if is an oil buffer
+        if string.find(vim.api.nvim_buf_get_name(0), "oil") then
+            vim.cmd("w")
+            return
+        end
+
         if (GetIsLspAttachedToCurrentBuffer()) then
             if (isCodeFormattingEnabled) then
                 vim.lsp.buf.format({ async = false })
             end
-            vim.cmd("w")
         else
-            if (isCodeFormattingEnabled) then
-                FormatBufferWithoutLsp()
+            FormatBufferWithoutLsp()
+        end
+
+        if vim.api.nvim_buf_get_name(0) == "" then
+            -- save for unnamed buffers
+            local file_name = vim.fn.input("new file name -> ")
+            if file_name == "" then
+                return;
             end
+            vim.cmd("w " .. file_name)
+        else
             vim.cmd("w")
         end
     end)

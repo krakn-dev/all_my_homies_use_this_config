@@ -1,2 +1,2 @@
 vim.cmd(
-    "set statusline=\\ %f\\ %m%=@\\ %{expand('%:p:h')==getcwd()?'.':substitute(getcwd(),$HOME,'~','')}\\ \\ \\ %c\\ %l\\ \\ ")
+    "set statusline=\\ %F\\ %m%=@\\ %{expand('%:p:h')==getcwd()?'.':substitute(getcwd(),$HOME,'~','')}\\ \\ \\ %c\\ %l\\ \\ ")
