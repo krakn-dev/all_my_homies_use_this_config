@@ -93,15 +93,20 @@ vim.keymap.set("n", "<leader>d", "\"_d")
 vim.keymap.set("v", "<leader>d", "\"_d")
 vim.keymap.set("n", "<leader>D", "\"_dd")
 
--- easier ESC
-vim.keymap.set("i", "jk", "<Esc>")
-
 -- ?? why
 vim.keymap.set("v", "Q", "<nop>")
+
+-- delete word in insert
+vim.keymap.set("c", "<S-BS>", "<C-W>")
+vim.keymap.set("i", "<S-BS>", "<C-W>")
 
 -- set cwd to current file directory
 vim.keymap.set("n", "g.", "<CMD>cd %:p:h<CR>")
 -- interactively cd relative to current file dir
-vim.keymap.set("n", "g/", ":cd %:p:h/")
+vim.keymap.set("n", "g/",
+    function()
+        local new_cd_path = vim.fn.input("go to -> ", vim.loop.cwd())
+        vim.cmd("cd " .. new_cd_path)
+    end)
 -- cd to last dir
 vim.keymap.set("n", "g-", "<CMD>cd -<CR>")

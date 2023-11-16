@@ -3,7 +3,7 @@ trouble.setup {
     icons = false,
 }
 -- open error list
-vim.keymap.set("n", "<leader>co",
+vim.keymap.set("n", "<leader>e",
     function()
         trouble.toggle()
     end)

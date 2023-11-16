@@ -19,7 +19,6 @@ return require('packer').startup(function(use)
     use 'stevearc/oil.nvim'
     use 'folke/trouble.nvim'
     use 'smjonas/inc-rename.nvim'
-    use 'ahmedkhalf/project.nvim'
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
@@ -35,8 +34,5 @@ return require('packer').startup(function(use)
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'L3MON4D3/LuaSnip' },
         }
-    }
-    use {
-        "nvim-telescope/telescope-frecency.nvim",
     }
 end)

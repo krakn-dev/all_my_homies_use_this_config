@@ -14,7 +14,7 @@
 --  inverse = true, -- invert background for search, diffs, statuslines and errors
 --  contrast = "hard", -- can be "hard", "soft" or empty string
 --})
---vim.o.background = "dark" 
+--vim.o.background = "dark"
 --vim.cmd("colorscheme gruvbox")
 
 vim.cmd("set termguicolors")
