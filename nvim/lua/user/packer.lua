@@ -19,6 +19,8 @@ return require('packer').startup(function(use)
     use 'stevearc/oil.nvim'
     use 'folke/trouble.nvim'
     use 'smjonas/inc-rename.nvim'
+    use 'smoka7/hop.nvim'
+    use 'mtth/scratch.vim'
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',

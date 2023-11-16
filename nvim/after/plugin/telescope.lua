@@ -8,11 +8,11 @@ telescope.setup {
             theme = "ivy",
             mappings = {
                 i = {
-                    ['<S-BS>'] = actions.close,
-                    ['<A-[>'] = actions.move_selection_previous,
-                    ['<A-]>'] = actions.move_selection_next,
-
                     ['<ESC>'] = actions.close,
+                    ['<A-k>'] = actions.move_selection_previous,
+                    ['<A-j>'] = actions.move_selection_next,
+                    ['<A-l>'] = actions.select_default,
+
                     ['<left>'] = actions.nop,
                     ['<up>'] = actions.nop,
                     ['<down>'] = actions.nop,
@@ -24,11 +24,11 @@ telescope.setup {
             theme = "ivy",
             mappings = {
                 i = {
-                    ['<S-BS>'] = actions.close,
-                    ['<A-[>'] = actions.move_selection_previous,
-                    ['<A-]>'] = actions.move_selection_next,
-
                     ['<ESC>'] = actions.close,
+                    ['<A-k>'] = actions.move_selection_previous,
+                    ['<A-j>'] = actions.move_selection_next,
+                    ['<A-l>'] = actions.select_default,
+
                     ['<left>'] = actions.nop,
                     ['<up>'] = actions.nop,
                     ['<down>'] = actions.nop,
@@ -41,11 +41,13 @@ telescope.setup {
             theme = "ivy",
             mappings = {
                 i = {
-                    ['<S-BS>'] = actions.close,
-                    ['<A-[>'] = actions.move_selection_previous,
-                    ['<A-]>'] = actions.move_selection_next,
-
                     ['<ESC>'] = actions.close,
+                    ['<A-k>'] = actions.move_selection_previous,
+                    ['<A-j>'] = actions.move_selection_next,
+                    ['<A-l>'] = actions.select_default,
+
+                    ['<A-d>'] = actions.delete_buffer,
+
                     ['<left>'] = actions.nop,
                     ['<up>'] = actions.nop,
                     ['<down>'] = actions.nop,
@@ -80,8 +82,12 @@ vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {})
 -- search string
 vim.keymap.set('n', '<leader>g',
     function()
+        local grep_string = vim.fn.input("Grep -> ")
+        if grep_string == "" then
+            return;
+        end
         builtin.grep_string({
-            search = vim.fn.input("Grep -> ")
+            search = grep_string
         })
     end
 )
