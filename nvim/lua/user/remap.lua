@@ -83,6 +83,13 @@ vim.keymap.set("n", "<leader>wh", "<C-w>h")
 vim.keymap.set("n", "<leader>wj", "<C-w>j")
 vim.keymap.set("n", "<leader>wk", "<C-w>k")
 vim.keymap.set("n", "<leader>wl", "<C-w>l")
+-- move open buffers
+vim.keymap.set("n", "<leader>wH", "<C-w>H")
+vim.keymap.set("n", "<leader>wJ", "<C-w>J")
+vim.keymap.set("n", "<leader>wK", "<C-w>K")
+vim.keymap.set("n", "<leader>wL", "<C-w>L")
+-- move buffer to its own tab
+vim.keymap.set("n", "<leader>wf", "<C-w>T")
 
 
 -- move selected lines
@@ -150,8 +157,14 @@ vim.keymap.set("n", "<A-Tab>", "za")
 -- go to other pair
 vim.keymap.set("n", "<Tab>", "%")
 
--- go to beginning of line
-vim.keymap.set("n", "<A-h>", "0")
+-- remap enter command mode
+vim.keymap.set("c", "<A-l>", "<CR>")
+-- remap arrow keys
+vim.keymap.set("c", "<A-k>", "<Up>")
+vim.keymap.set("c", "<A-j>", "<Down>")
 
--- go to end of line
-vim.keymap.set("n", "<A-l>", "$")
+-- remap arrow keys insert
+vim.keymap.set("i", "<A-l>", "<Right>")
+vim.keymap.set("i", "<A-h>", "<Left>")
+vim.keymap.set("i", "<A-k>", "<Up>")
+vim.keymap.set("i", "<A-j>", "<Down>")

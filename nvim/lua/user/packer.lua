@@ -19,8 +19,10 @@ return require('packer').startup(function(use)
     use 'stevearc/oil.nvim'
     use 'folke/trouble.nvim'
     use 'smjonas/inc-rename.nvim'
+    use { "kylechui/nvim-surround", tag = "*", }
     use 'smoka7/hop.nvim'
     use 'mtth/scratch.vim'
+    use "windwp/nvim-autopairs"
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
