@@ -112,19 +112,34 @@ vim.keymap.set("v", "Q", "<nop>")
 -- delete word in insert
 vim.keymap.set("c", "<C-BS>", "<C-W>")
 vim.keymap.set("i", "<C-BS>", "<C-W>")
+vim.keymap.set("c", "<S-BS>", "<C-W>")
+vim.keymap.set("i", "<S-BS>", "<C-W>")
 
 
 -- go next matching word in top of cursor
 vim.keymap.set("n", "gn", "*")
 
 -- set cwd to current file directory
-vim.keymap.set("n", "g.", "<CMD>cd %:p:h<CR>")
+vim.keymap.set("n", "g.",
+    function()
+        local new_cd_path = vim.fn.input("go to -> ", vim.fn.expand("%:p:h"))
+        if new_cd_path == "" then
+            return
+        end
+        vim.cmd("cd " .. new_cd_path)
 
+        vim.cmd("echo ''")
+    end)
 -- interactively cd relative to current file dir
 vim.keymap.set("n", "g/",
     function()
         local new_cd_path = vim.fn.input("go to -> ", vim.loop.cwd())
+        if new_cd_path == "" then
+            return
+        end
         vim.cmd("cd " .. new_cd_path)
+
+        vim.cmd("echo ''")
     end)
 -- cd to last dir
 vim.keymap.set("n", "g-", "<CMD>cd -<CR>")

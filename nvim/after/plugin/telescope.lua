@@ -5,27 +5,41 @@ local telescope = require('telescope')
 telescope.setup {
     pickers = {
         find_files = {
+            previewer = false,
             theme = "ivy",
             mappings = {
                 i = {
                     ['<ESC>'] = actions.close,
+                    ['<A-k>'] = actions.move_selection_previous,
+                    ['<A-j>'] = actions.move_selection_next,
+                    ['<A-l>'] = actions.select_default,
                 },
             }
         },
         oldfiles = {
+            previewer = false,
             theme = "ivy",
             mappings = {
                 i = {
                     ['<ESC>'] = actions.close,
+                    ['<A-k>'] = actions.move_selection_previous,
+                    ['<A-j>'] = actions.move_selection_next,
+                    ['<A-l>'] = actions.select_default,
                 },
             }
         },
         buffers = {
+            previewer = false,
             sort_lastused = true,
             theme = "ivy",
             mappings = {
                 i = {
                     ['<ESC>'] = actions.close,
+                    ['<A-k>'] = actions.move_selection_previous,
+                    ['<A-j>'] = actions.move_selection_next,
+                    ['<A-l>'] = actions.select_default,
+
+                    ['<A-d>'] = actions.delete_buffer,
                 },
             }
         },

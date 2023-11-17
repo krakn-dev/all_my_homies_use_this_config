@@ -1,4 +1,5 @@
-require("oil").setup({
+local oil = require("oil")
+oil.setup({
     keymaps = {
         ["<A-l>"] = "actions.select",
         ["<A-h>"] = "actions.parent",
@@ -13,5 +14,9 @@ require("oil").setup({
     delete_to_trash = true,
 })
 vim.keymap.set("n", "<leader>j", function()
-    vim.cmd("Oil")
+    oil.open()
+end)
+
+vim.keymap.set("n", "<leader>k", function()
+    oil.open(vim.loop.cwd())
 end)
