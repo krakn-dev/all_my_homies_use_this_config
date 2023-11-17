@@ -9,3 +9,8 @@ and that is pretty cool ngl
 arch btw  
 i3 btw  
 neovim btw  
+
+
+### kitty.conf
+font_family Hack Nerd Font
+font_size   13
