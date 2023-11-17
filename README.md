@@ -12,5 +12,5 @@ neovim btw
 
 
 ### kitty.conf
-font_family Hack Nerd Font
-font_size   13
+font_family Hack Nerd Font  
+font_size   13  
