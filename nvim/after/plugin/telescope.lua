@@ -9,14 +9,6 @@ telescope.setup {
             mappings = {
                 i = {
                     ['<ESC>'] = actions.close,
-                    ['<A-k>'] = actions.move_selection_previous,
-                    ['<A-j>'] = actions.move_selection_next,
-                    ['<A-l>'] = actions.select_default,
-
-                    ['<left>'] = actions.nop,
-                    ['<up>'] = actions.nop,
-                    ['<down>'] = actions.nop,
-                    ['<right>'] = actions.nop
                 },
             }
         },
@@ -25,14 +17,6 @@ telescope.setup {
             mappings = {
                 i = {
                     ['<ESC>'] = actions.close,
-                    ['<A-k>'] = actions.move_selection_previous,
-                    ['<A-j>'] = actions.move_selection_next,
-                    ['<A-l>'] = actions.select_default,
-
-                    ['<left>'] = actions.nop,
-                    ['<up>'] = actions.nop,
-                    ['<down>'] = actions.nop,
-                    ['<right>'] = actions.nop
                 },
             }
         },
@@ -42,16 +26,6 @@ telescope.setup {
             mappings = {
                 i = {
                     ['<ESC>'] = actions.close,
-                    ['<A-k>'] = actions.move_selection_previous,
-                    ['<A-j>'] = actions.move_selection_next,
-                    ['<A-l>'] = actions.select_default,
-
-                    ['<A-d>'] = actions.delete_buffer,
-
-                    ['<left>'] = actions.nop,
-                    ['<up>'] = actions.nop,
-                    ['<down>'] = actions.nop,
-                    ['<right>'] = actions.nop
                 },
             }
         },

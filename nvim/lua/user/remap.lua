@@ -110,54 +110,8 @@ vim.keymap.set("n", "<leader>D", "\"_dd")
 vim.keymap.set("v", "Q", "<nop>")
 
 -- delete word in insert
-vim.keymap.set("c", "<S-BS>", "<C-W>")
-vim.keymap.set("i", "<S-BS>", "<C-W>")
-
--- use Alt HJKL instead of arrows
-vim.keymap.set("i", "<A-j>", "<Down>")
-vim.keymap.set("i", "<A-k>", "<Up>")
-vim.keymap.set("i", "<A-l>", "<Right>")
-vim.keymap.set("i", "<A-h>", "<Left>")
-
-vim.keymap.set("c", "<A-j>", "<Down>")
-vim.keymap.set("c", "<A-k>", "<Up>")
-vim.keymap.set("c", "<A-l>", "<Right>")
-vim.keymap.set("c", "<A-h>", "<Left>")
-
--- jump one word
-vim.keymap.set("c", "<A-S-j>", "<S-Down>")
-vim.keymap.set("c", "<A-S-k>", "<S-Up>")
-vim.keymap.set("c", "<A-S-l>", "<S-Right>")
-vim.keymap.set("c", "<A-S-h>", "<S-Left>")
-
-vim.keymap.set("i", "<A-S-j>", "<S-Down>")
-vim.keymap.set("i", "<A-S-k>", "<S-Up>")
-vim.keymap.set("i", "<A-S-l>", "<S-Right>")
-vim.keymap.set("i", "<A-S-h>", "<S-Left>")
-
--- jump one word in command mode
-vim.keymap.set("c", "<A-S-j>", "<S-Down>")
-vim.keymap.set("c", "<A-S-k>", "<S-Up>")
-vim.keymap.set("c", "<A-S-l>", "<S-Right>")
-vim.keymap.set("c", "<A-S-h>", "<S-Left>")
-
-
--- disable arrow keys
-vim.keymap.set("i", "<Down>", "<nop>")
-vim.keymap.set("i", "<Up>", "<nop>")
-vim.keymap.set("i", "<Right>", "<nop>")
-vim.keymap.set("i", "<Left>", "<nop>")
-
-vim.keymap.set("v", "<Down>", "<nop>")
-vim.keymap.set("v", "<Up>", "<nop>")
-vim.keymap.set("v", "<Right>", "<nop>")
-vim.keymap.set("v", "<Left>", "<nop>")
-
-vim.keymap.set("n", "<Down>", "<nop>")
-vim.keymap.set("n", "<Up>", "<nop>")
-vim.keymap.set("n", "<Right>", "<nop>")
-vim.keymap.set("n", "<Left>", "<nop>")
-
+vim.keymap.set("c", "<C-BS>", "<C-W>")
+vim.keymap.set("i", "<C-BS>", "<C-W>")
 
 
 -- go next matching word in top of cursor
@@ -165,6 +119,7 @@ vim.keymap.set("n", "gn", "*")
 
 -- set cwd to current file directory
 vim.keymap.set("n", "g.", "<CMD>cd %:p:h<CR>")
+
 -- interactively cd relative to current file dir
 vim.keymap.set("n", "g/",
     function()
@@ -173,3 +128,15 @@ vim.keymap.set("n", "g/",
     end)
 -- cd to last dir
 vim.keymap.set("n", "g-", "<CMD>cd -<CR>")
+
+-- fold/unfold with tab
+vim.keymap.set("n", "<A-Tab>", "za")
+
+-- go to other pair
+vim.keymap.set("n", "<Tab>", "%")
+
+-- go to beginning of line
+vim.keymap.set("n", "<A-h>", "0")
+
+-- go to end of line
+vim.keymap.set("n", "<A-l>", "$")

@@ -2,6 +2,7 @@ require("oil").setup({
     keymaps = {
         ["<A-l>"] = "actions.select",
         ["<A-h>"] = "actions.parent",
+        ["<CR>"] = "actions.select",
         ["g."] = "actions.cd",
         ["gh"] = "actions.show_help",
         ["th"] = "actions.toggle_hidden",

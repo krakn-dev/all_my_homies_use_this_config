@@ -19,3 +19,5 @@
 
 vim.cmd("set termguicolors")
 vim.cmd("colorscheme miramare")
+
+vim.cmd('highlight! Folded guibg=#2a2426 guifg=#c9b78b')
