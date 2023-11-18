@@ -98,12 +98,8 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- half page jump while keeping the
 -- cursor in the middle
-vim.keymap.set("n", "<a-j>", "<C-d>zz")
-vim.keymap.set("n", "<a-k>", "<C-u>zz")
-
--- for visual mode
-vim.keymap.set("v", "<a-j>", "<C-d>zz")
-vim.keymap.set("v", "<a-k>", "<C-u>zz")
+vim.keymap.set("n", "<A-j>", "<C-d>zz")
+vim.keymap.set("n", "<A-k>", "<C-u>zz")
 
 -- same as J but not shifting the cursor
 vim.keymap.set("n", "J", "mzJ`z")
@@ -117,10 +113,8 @@ vim.keymap.set("n", "<leader>D", "\"_dd")
 vim.keymap.set("v", "Q", "<nop>")
 
 -- delete word in insert
-vim.keymap.set("c", "<C-BS>", "<C-W>")
-vim.keymap.set("i", "<C-BS>", "<C-W>")
-vim.keymap.set("c", "<S-BS>", "<C-W>")
-vim.keymap.set("i", "<S-BS>", "<C-W>")
+vim.keymap.set("c", "<A-w>", "<C-W>")
+vim.keymap.set("i", "<A-w>", "<C-W>")
 
 
 -- go next matching word in top of cursor
@@ -151,20 +145,37 @@ vim.keymap.set("n", "g/",
 -- cd to last dir
 vim.keymap.set("n", "g-", "<CMD>cd -<CR>")
 
--- fold/unfold with tab
-vim.keymap.set("n", "<A-Tab>", "za")
-
 -- go to other pair
 vim.keymap.set("n", "<Tab>", "%")
+vim.keymap.set("v", "<Tab>", "%")
 
--- remap enter command mode
+-- wrist-friendly enter command mode
 vim.keymap.set("c", "<A-l>", "<CR>")
--- remap arrow keys
+
+-- wrist-friendly cycle commands
 vim.keymap.set("c", "<A-k>", "<Up>")
 vim.keymap.set("c", "<A-j>", "<Down>")
 
--- remap arrow keys insert
+-- wrist-friendly arrow keys
 vim.keymap.set("i", "<A-l>", "<Right>")
 vim.keymap.set("i", "<A-h>", "<Left>")
 vim.keymap.set("i", "<A-k>", "<Up>")
 vim.keymap.set("i", "<A-j>", "<Down>")
+
+-- wrist-friendly esc
+vim.keymap.set("i", "jk", "<ESC>")
+vim.keymap.set("v", "<A-j>k", "<ESC>")
+-- if i have to
+vim.keymap.set("i", "<A-Tab>", "<ESC>")
+vim.keymap.set("c", "<A-Tab>", "<C-c>")
+vim.keymap.set("v", "<A-Tab>", "<ESC>")
+
+-- wrist-friendly backspace
+vim.keymap.set("i", "<A-d>", "<BS>")
+vim.keymap.set("c", "<A-d>", "<BS>")
+
+-- wrist-friendly delete
+vim.keymap.set("i", "<A-x>", "<Del>")
+
+-- wrist-friendly new line
+vim.keymap.set("i", "<A-o>", "<CR>")

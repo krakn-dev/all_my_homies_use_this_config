@@ -34,3 +34,6 @@ vim.opt.fillchars = "fold: "
 vim.opt.foldnestmax = 1
 vim.opt.foldminlines = 1
 vim.opt.foldlevel = 9
+
+
+vim.opt.cursorline = true

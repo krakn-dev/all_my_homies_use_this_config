@@ -9,6 +9,7 @@ telescope.setup {
             theme = "ivy",
             mappings = {
                 i = {
+                    ['jk'] = actions.close,
                     ['<ESC>'] = actions.close,
                     ['<A-k>'] = actions.move_selection_previous,
                     ['<A-j>'] = actions.move_selection_next,
@@ -21,11 +22,24 @@ telescope.setup {
             theme = "ivy",
             mappings = {
                 i = {
+                    ['jk'] = actions.close,
                     ['<ESC>'] = actions.close,
                     ['<A-k>'] = actions.move_selection_previous,
                     ['<A-j>'] = actions.move_selection_next,
                     ['<A-l>'] = actions.select_default,
                 },
+            }
+        },
+        live_grep = {
+            theme = "ivy",
+            mappings = {
+                i = {
+                    ['jk'] = actions.close,
+                    ['<ESC>'] = actions.close,
+                    ['<A-k>'] = actions.move_selection_previous,
+                    ['<A-j>'] = actions.move_selection_next,
+                    ['<A-l>'] = actions.select_default,
+                }
             }
         },
         buffers = {
@@ -34,6 +48,7 @@ telescope.setup {
             theme = "ivy",
             mappings = {
                 i = {
+                    ['jk'] = actions.close,
                     ['<ESC>'] = actions.close,
                     ['<A-k>'] = actions.move_selection_previous,
                     ['<A-j>'] = actions.move_selection_next,
@@ -48,11 +63,8 @@ telescope.setup {
 -- find file from path
 vim.keymap.set('n', '<leader>fF',
     function()
-        local default_location = vim.loop.cwd()
-        local new_location = vim.fn.input("from -> ", default_location)
-        if new_location == default_location or
-            new_location == ""
-        then
+        local new_location = vim.fn.input("from -> ", vim.loop.cwd())
+        if new_location == "" then
             return;
         end
         builtin.find_files { cwd = new_location }
@@ -68,14 +80,12 @@ vim.keymap.set('n', '<leader>,', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fr', builtin.oldfiles, {})
 
 -- search string
-vim.keymap.set('n', '<leader>g',
+vim.keymap.set('n', '<leader>g', builtin.live_grep)
+vim.keymap.set('n', '<leader>G',
     function()
-        local grep_string = vim.fn.input("Grep -> ")
-        if grep_string == "" then
+        local new_location = vim.fn.input("from -> ", vim.loop.cwd())
+        if new_location == "" then
             return;
         end
-        builtin.grep_string({
-            search = grep_string
-        })
-    end
-)
+        builtin.live_grep { cwd = new_location }
+    end)
