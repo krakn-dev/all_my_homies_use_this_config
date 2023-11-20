@@ -60,4 +60,7 @@ cmp.setup {
     }
 }
 -- line error popup
-vim.keymap.set("n", "<leader>o", vim.diagnostic.open_float)
+vim.keymap.set("n", "<A-e>", vim.diagnostic.open_float)
+vim.keymap.set("n", "<leader>F", vim.lsp.buf.code_action)
+
+vim.diagnostic.config({ virtual_text = false })

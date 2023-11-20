@@ -35,5 +35,5 @@ vim.opt.foldnestmax = 1
 vim.opt.foldminlines = 1
 vim.opt.foldlevel = 9
 
-
+vim.opt.pumheight = 10
 vim.opt.cursorline = true

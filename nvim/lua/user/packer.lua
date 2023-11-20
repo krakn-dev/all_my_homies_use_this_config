@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', tag = '0.1.4',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    use "aznhe21/actions-preview.nvim"
     use 'ellisonleao/gruvbox.nvim'
     use 'franbach/miramare'
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
@@ -21,6 +22,7 @@ return require('packer').startup(function(use)
     use 'smjonas/inc-rename.nvim'
     use { "kylechui/nvim-surround", tag = "*", }
     use 'smoka7/hop.nvim'
+    use "ray-x/lsp_signature.nvim"
     use 'mtth/scratch.vim'
     use "windwp/nvim-autopairs"
     use {

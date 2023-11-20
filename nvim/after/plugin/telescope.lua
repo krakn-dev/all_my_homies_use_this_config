@@ -6,32 +6,27 @@ telescope.setup {
     pickers = {
         find_files = {
             previewer = false,
-            theme = "ivy",
-            mappings = {
-                i = {
-                    ['jk'] = actions.close,
-                    ['<ESC>'] = actions.close,
-                    ['<A-k>'] = actions.move_selection_previous,
-                    ['<A-j>'] = actions.move_selection_next,
-                    ['<A-l>'] = actions.select_default,
-                },
-            }
         },
         oldfiles = {
             previewer = false,
-            theme = "ivy",
+        },
+        live_grep = {
+            previewer = true,
+        },
+        buffers = {
+            previewer = false,
+            sort_lastused = true,
             mappings = {
                 i = {
-                    ['jk'] = actions.close,
-                    ['<ESC>'] = actions.close,
-                    ['<A-k>'] = actions.move_selection_previous,
-                    ['<A-j>'] = actions.move_selection_next,
-                    ['<A-l>'] = actions.select_default,
+                    ['<A-r>'] = actions.delete_buffer,
                 },
             }
         },
-        live_grep = {
-            theme = "ivy",
+    },
+    defaults = vim.tbl_extend(
+        "force",
+        require('telescope.themes').get_ivy(), --
+        {
             mappings = {
                 i = {
                     ['jk'] = actions.close,
@@ -41,24 +36,8 @@ telescope.setup {
                     ['<A-l>'] = actions.select_default,
                 }
             }
-        },
-        buffers = {
-            previewer = false,
-            sort_lastused = true,
-            theme = "ivy",
-            mappings = {
-                i = {
-                    ['jk'] = actions.close,
-                    ['<ESC>'] = actions.close,
-                    ['<A-k>'] = actions.move_selection_previous,
-                    ['<A-j>'] = actions.move_selection_next,
-                    ['<A-l>'] = actions.select_default,
-
-                    ['<A-d>'] = actions.delete_buffer,
-                },
-            }
-        },
-    },
+        }
+    )
 }
 -- find file from path
 vim.keymap.set('n', '<leader>fF',

@@ -164,7 +164,7 @@ vim.keymap.set("i", "<A-j>", "<Down>")
 
 -- wrist-friendly esc
 vim.keymap.set("i", "jk", "<ESC>")
-vim.keymap.set("v", "<A-j>k", "<ESC>")
+vim.keymap.set("v", "<A-l>", "<ESC>")
 -- if i have to
 vim.keymap.set("i", "<A-Tab>", "<ESC>")
 vim.keymap.set("c", "<A-Tab>", "<C-c>")
@@ -179,3 +179,8 @@ vim.keymap.set("i", "<A-x>", "<Del>")
 
 -- wrist-friendly new line
 vim.keymap.set("i", "<A-o>", "<CR>")
+
+-- paste in command mode
+vim.keymap.set("c", "<A-p>", "<C-r>\"")
+-- system clipboard
+vim.keymap.set("c", "<A-P>", "<C-r>+")
