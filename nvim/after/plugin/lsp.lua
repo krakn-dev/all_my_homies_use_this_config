@@ -9,6 +9,7 @@ lsp_config.gopls.setup {}
 lsp_config.cssls.setup {}
 lsp_config.pyright.setup {}
 lsp_config.tsserver.setup {}
+lsp_config.bashls.setup {}
 lsp_config.lua_ls.setup {
     settings = {
         Lua = {

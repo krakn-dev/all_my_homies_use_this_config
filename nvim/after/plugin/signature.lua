@@ -1,5 +1,5 @@
 require "lsp_signature".setup {
-    doc_lines = 0,
+    doc_lines = 999,
     floating_window_off_x = -9999,
     floating_window_off_y = function()
         local window_height = vim.fn.winheight(0)
@@ -12,3 +12,6 @@ require "lsp_signature".setup {
     },
     hint_prefix = "-> ",
 }
+
+
+vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help)

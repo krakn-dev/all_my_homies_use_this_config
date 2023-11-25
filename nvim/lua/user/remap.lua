@@ -46,7 +46,7 @@ vim.keymap.set("n", "<leader>fs",
 
 -- open and select lsp on ]
 -- toggle code formatting
-vim.keymap.set("n", "<leader>cf",
+vim.keymap.set("n", "<leader>tf",
     function()
         if (isCodeFormattingEnabled) then
             isCodeFormattingEnabled = false
@@ -100,6 +100,9 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- cursor in the middle
 vim.keymap.set("n", "<A-j>", "<C-d>zz")
 vim.keymap.set("n", "<A-k>", "<C-u>zz")
+
+vim.keymap.set("v", "<A-j>", "<C-d>zz")
+vim.keymap.set("v", "<A-k>", "<C-u>zz")
 
 -- same as J but not shifting the cursor
 vim.keymap.set("n", "J", "mzJ`z")
@@ -164,11 +167,14 @@ vim.keymap.set("i", "<A-j>", "<Down>")
 
 -- wrist-friendly esc
 vim.keymap.set("i", "jk", "<ESC>")
-vim.keymap.set("v", "<A-l>", "<ESC>")
+vim.keymap.set("v", "<A-h>", "<ESC>")
+vim.keymap.set("n", "<A-h>", "<ESC>")
+vim.keymap.set("c", "<A-h>", "<C-c>")
 -- if i have to
 vim.keymap.set("i", "<A-Tab>", "<ESC>")
 vim.keymap.set("c", "<A-Tab>", "<C-c>")
 vim.keymap.set("v", "<A-Tab>", "<ESC>")
+vim.keymap.set("n", "<A-Tab>", "<ESC>")
 
 -- wrist-friendly backspace
 vim.keymap.set("i", "<A-d>", "<BS>")
@@ -182,5 +188,12 @@ vim.keymap.set("i", "<A-o>", "<CR>")
 
 -- paste in command mode
 vim.keymap.set("c", "<A-p>", "<C-r>\"")
+
 -- system clipboard
 vim.keymap.set("c", "<A-P>", "<C-r>+")
+
+-- indent to current column
+vim.keymap.set("i", "<A-i>", "<C-f>")
+
+-- indent to current column
+vim.keymap.set("n", "<leader>.", "i<C-x><C-f>")
